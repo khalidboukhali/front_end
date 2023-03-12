@@ -5,8 +5,9 @@ import ForthStep from '../Steps/FourthStep'
 import FinalStep from '../Steps/FinalStep'
 
 import {Stepper,StepLabel,Step} from '@material-ui/core';
-import  { multiStepContext } from '../Context/StepContext';
+import  StepContext, { multiStepContext } from '../Context/StepContext';
 import { useContext } from 'react';
+
 
 function CreateProjectBody() {
 
@@ -27,7 +28,7 @@ function CreateProjectBody() {
     }
   }
   return (
-    <div className="App">
+    <div className='main-body'>
       <div>
       <Stepper activeStep={currentStep-1} orientation="horizontal">
           <Step>
@@ -48,7 +49,7 @@ function CreateProjectBody() {
       </Stepper>
       </div>
       {showStep(currentStep)}
-    </div>
+    </div>  
   );
 }
 

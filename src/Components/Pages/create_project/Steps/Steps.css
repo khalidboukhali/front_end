@@ -1,0 +1,72 @@
+.stepContent{
+    background-color:#fff;
+    position:relative;
+    border-radius: 6px;
+    padding: 1.8em;
+    margin:auto;   
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+.stepContent header {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.stepContent header::before{
+    content: "";
+    position: absolute;
+    bottom:-2px;
+    width:27px;
+    height: 3px;
+    background-color: #4070f4;
+    border-radius: 8px;
+
+}
+.stepContent form {
+    position: relative;
+    margin-top:16px;
+    min-height:490;
+    padding-left: 10px;
+}
+.stepContent .details {
+    margin-top:10px;
+}
+.stepContent .title{
+    font-size:16px;
+    font-weight: 500;
+    margin:6px 0;
+    color: #333;
+}
+.stepContent .title-bassin {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 12px 0;
+    color:#330;
+}
+.stepContent .fields {
+    display: flex;
+    align-items: center;
+}
+.stepContent .input-field{
+    margin: 10px 10px;
+    z-index: 1;
+}
+.stepContent .fields1 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.stepContent .fields2 {
+    display: flex;
+    flex-direction: column;
+}
+.stepContent .fields2 .text-field {
+    width: 15% ;
+    margin:10px 10px;
+}
+
+.button_container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: .6em;
+}

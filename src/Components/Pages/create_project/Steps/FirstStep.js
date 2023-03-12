@@ -1,12 +1,14 @@
 import React, { useState,useContext } from 'react';
 import {Form,Formik } from 'formik';
 import * as yup from 'yup';
-import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup,TextField,Typography } from '@material-ui/core';
+import { Box, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid, Radio, RadioGroup,TextField,Typography } from '@material-ui/core';
 import InputField from '../Controls/TextField';
 import Button from '@material-ui/core/Button';
 import { MuiPickersUtilsProvider,KeyboardDatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns';
 import { multiStepContext } from '../Context/StepContext';
+
+import './Steps.css'
 
 const validationSchema = yup.object({
     domaine: yup
@@ -77,7 +79,7 @@ const FirstStep = () => {
 
 
 return ( 
-            <Formik
+        <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit ={(values) =>{  
@@ -85,39 +87,40 @@ return (
                     setStep(2);
                 }}
             
-            >
+        >
             {formik => (
-                <Form>
-
-                    <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                        <KeyboardDatePicker
-                            autoOk
-                            variant="inline"
-                            inputVariant="outlined"
-                            label="Date"
-                            format= 'yyyy-mm-dd'
-                            value={selectedDate}
-                            onChange={handleDateChange}
-                            KeyboardButtonProps={{
-                            'aria-label': 'change date',
-                            }}
-                            TextFieldComponent={TextField}
-                        />
-                    </MuiPickersUtilsProvider>
-
-                    
-
-                            <InputField name="domaine" value={userData.domaine} label="Domaine" />
-                            <InputField name="situation_géographique" label="Situation géographique" />
-                            <InputField name="propriètaire" label="Propriètaire" />
-                            <InputField name="locataire" label="Locataire" />
-                            <InputField name="superficie_totel" label="Superficie totel" />
-                            <InputField name="superficie_à_équiper" label="Superficie à équiper" />
-                            <InputField name="commercial" label="Commercial" />
-                            <InputField name="n_dossier" label="N° dossier" />
-
-                            <InputField name="phone" label="Numero de télephone" />
-                    
+                <Form className='form'>
+                    <Box className="stepContent">
+                      <Box display="flex" justifyContent="flex-end">
+                            <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                <KeyboardDatePicker
+                                    autoOk
+                                    variant="inline"
+                                    inputVariant="outlined"
+                                    label="Date"
+                                    format= 'yyyy-MM-dd'
+                                    value={selectedDate}
+                                    onChange={handleDateChange}
+                                    KeyboardButtonProps={{
+                                    'aria-label': 'change date',
+                                    }}
+                                    TextFieldComponent={TextField}
+                                />
+                            </MuiPickersUtilsProvider>
+                      </Box>
+                      <Box className="details">
+                        <Box display="flex" gap={2} flexWrap="wrap">
+                            <InputField name="domaine" value={userData.domaine} label="Domaine" className="input-field" />
+                            <InputField name="situation_géographique" label="Situation géographique" className="input-field" />
+                            <InputField name="propriètaire" label="Propriètaire" className="input-field" />
+                            <InputField name="locataire" label="Locataire" className="input-field" />
+                            <InputField name="superficie_totel" label="Superficie totel" className="input-field" />
+                            <InputField name="superficie_à_équiper" label="Superficie à équiper" className="input-field" />
+                            <InputField name="commercial" label="Commercial" className="input-field" />
+                            <InputField name="n_dossier" label="N° dossier" className="input-field" />
+                            <InputField name="phone" label="Numero de télephone" className="input-field" />
+                        </Box>
+                        <Box mt={2}>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Choix de l'étude</FormLabel>
                                 <RadioGroup row aria-label="etude" name="etude" value={formik.values.etude} onChange={formik.handleChange}>
@@ -129,33 +132,46 @@ return (
                                 <FormHelperText error={Boolean(formik.errors.etude)} >{formik.errors.etude}</FormHelperText>
                                 ) : null}
                             </FormControl>
-                                    
+                        </Box>
+                        <Box mt={2}>               
                             <FormControl component="fieldset">
                                 <FormLabel component="legend" >Choix Installation </FormLabel>
-                                            <Typography variant="subtitle1" gutterBottom>Principale</Typography>
-                                    <RadioGroup aria-label="installation_principele" name="installation_principele" row
-                                            value={formik.values.installation_principele} onChange={formik.handleChange} style={{marginBottom: '10px'}}>
-                                        <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
-                                        <FormControlLabel value="PEHD" control={<Radio />} label="PEHD" />
-                                    </RadioGroup>
-                                    {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_principele) ? (
-                                        <FormHelperText error={Boolean(formik.errors.installation_principele)} >{formik.errors.installation_principele}</FormHelperText>
-                                        ) : null}
-                                            <Typography variant="subtitle1" gutterBottom>Porte rampe</Typography>
-                                    <RadioGroup aria-label="installation_porte_rampe" name="installation_porte_rampe" row
-                                            value={formik.values.installation_porte_rampe} onChange={formik.handleChange}>
-                                    <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
-                                    <FormControlLabel value="PEHD" control={<Radio />} label="PEHD" />
-                                    </RadioGroup>
-                                    {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_porte_rampe) ? (
-                                        <FormHelperText error={Boolean(formik.errors.installation_porte_rampe)} >{formik.errors.installation_porte_rampe}</FormHelperText>
-                                        ) : null}
+                                    <Box display="flex" alignItems= "center">
+                                        <Box mr={1}>
+                                                <Typography variant="subtitle1" gutterBottom>Principale</Typography>
+                                        </Box>
+                                        <RadioGroup aria-label="installation_principele" name="installation_principele" row
+                                                value={formik.values.installation_principele} onChange={formik.handleChange} style={{marginBottom: '10px'}}>
+                                            <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
+                                            <FormControlLabel value="PEHD" control={<Radio />} label="PEHD" />
+                                        </RadioGroup>
+                                        {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_principele) ? (
+                                            <FormHelperText error={Boolean(formik.errors.installation_principele)} >{formik.errors.installation_principele}</FormHelperText>
+                                            ) : null}
+                                        <Box display="flex" alignItems= "center">
+                                            <Box mr={1}>
+                                                <Typography variant="subtitle1" gutterBottom>Porte rampe</Typography>
+                                            </Box>
+                                            <RadioGroup aria-label="installation_porte_rampe" name="installation_porte_rampe" row
+                                                    value={formik.values.installation_porte_rampe} onChange={formik.handleChange}>
+                                                <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
+                                            <FormControlLabel value="PEHD" control={<Radio />} label="PEHD" />
+                                            </RadioGroup>
+                                            {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_porte_rampe) ? (
+                                                <FormHelperText error={Boolean(formik.errors.installation_porte_rampe)} >{formik.errors.installation_porte_rampe}</FormHelperText>
+                                                ) : null}
+                                        </Box>
+                                    </Box>
                             </FormControl>
-
-                    <Button type="submit" variant="contained" color="primary">Next</Button>
-                </Form>   
+                        </Box> 
+                       </Box>
+                       <Grid >
+                            <Button type="submit" variant="contained" color="primary">Next</Button>
+                       </Grid>
+                    </Box>  
+             </Form>   
             )} 
-            </Formik>
+        </Formik>
 );
 };
 export default FirstStep;

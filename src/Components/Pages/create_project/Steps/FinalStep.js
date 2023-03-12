@@ -55,7 +55,7 @@ const FinalStep = () => {
     };
 
     return (
-      <Box>
+      <Box className="stepContent">
         <header>PIECES À FOURNIR AVEC LE DOSSIER DE SUBVENTION :</header>
         <Formik
           initialValues={initialValues}
@@ -159,8 +159,10 @@ const FinalStep = () => {
                       </TableBody>
                     </Table>
               </TableContainer>
-              <Button variant="contained" margin="auto" onClick={()=> {setStep(4)}} color="secondary">Back</Button>
-              <Button variant="contained" type="submit" color="primary" onClick={submitData}>Submit</Button>   
+              <Box className='button_container'>
+                <Button variant="contained" margin="auto" onClick={()=> {setStep(4)}}>Back</Button>
+                <Button variant="contained" type="submit" color="primary" onClick={submitData}>Submit</Button>  
+              </Box> 
             </Form>
            )}
         </Formik>

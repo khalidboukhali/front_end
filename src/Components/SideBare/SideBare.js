@@ -8,6 +8,7 @@ import { BsPeopleFill } from 'react-icons/bs'
 import { FaRegUserCircle } from 'react-icons/fa'
 import { IoIosNotificationsOutline } from 'react-icons/io'
 import { FiSettings } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 function SideBare() {
   return (
@@ -23,12 +24,12 @@ function SideBare() {
             <ul className="menuLists grid">
 
                 <li className="listItem">
-                    <a href="#" className="menuLink flex">
+                    <Link to="/" className="menuLink flex">
                         <IoMdSpeedometer />
                         <span className="smallText">
                             Dashboard
                         </span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="listItem">
@@ -41,12 +42,12 @@ function SideBare() {
                 </li>
 
                 <li className="listItem">
-                    <a href="createProject" className="menuLink flex">
+                    <Link to="/createProject" className="menuLink flex">
                         <BiAddToQueue />
                         <span className="smallText">
                             Create Project
                         </span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="listItem">

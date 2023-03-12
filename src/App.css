@@ -8,14 +8,25 @@
   transition: .3s ease;
 }
 
-.App{
-  display: flex;
-  height: 100vh;
+.sideBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18%;
+  height: 100%;
 }
 
-.appBody{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: .6em;
+.navBar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 19%);
+  z-index: 50;
 }
+
+.main-body {
+  margin-top: 5%;
+  padding: 1.2em;
+  margin-left: 20%;
+}
+

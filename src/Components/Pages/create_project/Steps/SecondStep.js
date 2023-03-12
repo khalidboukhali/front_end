@@ -5,6 +5,9 @@ import {Box,Button,FormHelperText,Typography} from '@material-ui/core';
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select } from '@material-ui/core';
 import InputField from '../Controls/TextField';
 import {multiStepContext} from '../Context/StepContext';
+
+import './Steps.css'
+
 const validationSchema = yup.object({
     maraichage: yup 
     .string()
@@ -87,9 +90,13 @@ const SecondStep = () => {
     >
             {formik => (
                 <Form>
-                      <header>CULTURES :</header>  
+                   <Box className='stepContent' >
+                        <header>CULTURES :</header>  
                         <FormControl component="fieldset">
+                          <Box display="flex" alignItems= "center">
+                            <Box mr={1}>
                                 <Typography variant="subtitle1" gutterBottom>Maraîchage</Typography>
+                            </Box>
                                 <RadioGroup row aria-label="maraichage" name="maraichage"
                                             value={formik.maraichage} onChange={formik.handleChange} >
                                     <FormControlLabel value="plein_champs" control={<Radio />} label="Plein champs" />
@@ -98,14 +105,17 @@ const SecondStep = () => {
                                 {formik.touched.maraichage && Boolean(formik.errors.maraichage) ? (
                               <FormHelperText error={Boolean(formik.errors.maraichage)} >{formik.errors.maraichage}</FormHelperText>
                               ) : null}
+                          </Box>
                         </FormControl>
                         
-                            <InputField name="culture" label="Culture" value={formik.culture} onChange={formik.handleChange}/>
-                            <InputField name="distance_entre_lignes" value={formik.distance_entre_lignes} onChange={formik.handleChange} label="Distance entre lignes" />
-                            <InputField name="distance_entre_plante" value={formik.distance_entre_plante} onChange={formik.handleChange} label="Distance entre plante"  />
-                            <InputField name="nbre_de_rempes_par_ligne" value={formik.nbre_de_rempes_par_ligne} onChange={formik.handleChange} label="Nbre de rempes par ligne" />
+                          <Box>
+                            <InputField name="culture" label="Culture" value={formik.culture} onChange={formik.handleChange} className="input-field"/>
+                            <InputField name="distance_entre_lignes" label="Distance entre lignes" value={formik.distance_entre_lignes} onChange={formik.handleChange} className="input-field" />
+                            <InputField name="distance_entre_plante" label="Distance entre plante" value={formik.distance_entre_plante} onChange={formik.handleChange} className="input-field"  />
+                            <InputField name="nbre_de_rempes_par_ligne" label="Nbre de rempes par ligne" value={formik.nbre_de_rempes_par_ligne} onChange={formik.handleChange} className="input-field" />
+                          </Box>
                             
-                            <FormControl >
+                            <FormControl style={{width: '50%', marginBottom: '10px'}} >
                                 <InputLabel id="demo-simple-select-label">Sens de plantation</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
@@ -115,6 +125,7 @@ const SecondStep = () => {
                                     value={formik.sens_de_plantation}
                                     onChange={formik.handleChange}
                                     defaultValue='droit'
+                                    // variant='outlined'
                                 >
                                     <MenuItem value="droit" >La plantation en ligne droite</MenuItem>
                                     <MenuItem value="quinconce" >La plantation en quinconce</MenuItem>
@@ -130,14 +141,18 @@ const SecondStep = () => {
                             <Typography variant="subtitle1" gutterBottom>
                             Arboriculture
                             </Typography>
-                            <InputField name="arboriculture_culture" label="Culture" value={formik.arboriculture_culture} onChange={formik.handleChange} />
-                            <InputField name="distance_entre_lignes_de_plantation" label="Distance entre lignes de plantation" value={formik.distance_entre_lignes_de_plantation} onChange={formik.handleChange} />
-                            <InputField name="distance_entre_les_arabres" label="Distance entre les arabres" value={formik.distance_entre_les_arabres} onChange={formik.handleChange} />
-                            <InputField name="arboriculture_nbre_de_rempes_par_ligne" label="Nbre de rempes par ligne" value={formik.arboriculture_nbre_de_rempes_par_ligne} onChange={formik.handleChange} />
-                            <InputField name="nbre_de_goutteurs_par_arabre" label="Nbre de goutteurs par arabre" value={formik.nbre_de_goutteurs_par_arabre} onChange={formik.handleChange} />
+                            <InputField name="arboriculture_culture" label="Culture" value={formik.arboriculture_culture} onChange={formik.handleChange} className="input-field" />
+                            <InputField name="distance_entre_lignes_de_plantation" label="Distance entre lignes de plantation" value={formik.distance_entre_lignes_de_plantation} onChange={formik.handleChange} className="input-field" />
+                            <InputField name="distance_entre_les_arabres" label="Distance entre les arabres" value={formik.distance_entre_les_arabres} onChange={formik.handleChange} className="input-field" />
+                            <InputField name="arboriculture_nbre_de_rempes_par_ligne" label="Nbre de rempes par ligne" value={formik.arboriculture_nbre_de_rempes_par_ligne} onChange={formik.handleChange} className="input-field" />
+                            <InputField name="nbre_de_goutteurs_par_arabre" label="Nbre de goutteurs par arabre" value={formik.nbre_de_goutteurs_par_arabre} onChange={formik.handleChange} className="input-field" />
                         </Box>
-                        <Button variant="contained" type="button" onClick={()=> {setStep(1)}} color="secondary">Back</Button>
-                        <Button variant="contained" type="submit" color="primary">Next</Button>                 
+                        
+                        <Box className='button_container'>
+                          <Button variant="contained" type="button" onClick={()=> {setStep(1)}}>Back</Button>
+                          <Button variant="contained" type="submit" color="primary">Next</Button>
+                        </Box>
+                    </Box>                    
                 </Form>
             )}
     </Formik>

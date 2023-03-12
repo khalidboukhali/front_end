@@ -1,7 +1,7 @@
 import { FormControl, FormControlLabel, RadioGroup,Radio, Typography } from '@material-ui/core'
 import React, {useState,useContext} from 'react'
 import * as yup from 'yup'
-import { useFormik,FormikProvider } from 'formik';
+import { useFormik,FormikProvider, Form } from 'formik';
 import {Button,Checkbox,Box,Stack  } from '@mui/material';
 import InputAdornment  from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -137,25 +137,25 @@ export default function ThirdStep() {
         }
       };
     return (
-    <Box className="container"> 
+    <Box className="stepContent"> 
         <header>Ressources En Eau</header>
         <FormikProvider value={formik}>
-            <form onSubmit={formik.handleSubmit} className="form-container">            
+            <Form className="form">            
             <FormControl component="fieldset">
                 <Box display="flex" alignItems= "center">
                     <Box mr={1}>
-                    <Typography variant="subtitle1" gutterBottom>Autorisation de pompage</Typography>
+                        <Typography variant="subtitle1" gutterBottom>Autorisation de pompage</Typography>
                     </Box>
-                    <RadioGroup row aria-label="authorisation" name="authorisation" value={formik.values.authorisation} onChange={formik.handleChange}>
-                    <FormControlLabel value="yes" control={<Radio />} label="OUI" />
-                    <FormControlLabel value="no" control={<Radio />} label="NON" />
+                        <RadioGroup row aria-label="authorisation" name="authorisation" value={formik.values.authorisation} onChange={formik.handleChange}>
+                        <FormControlLabel value="yes" control={<Radio />} label="OUI" />
+                        <FormControlLabel value="no" control={<Radio />} label="NON" />
                     </RadioGroup>
                 </Box>
               {errors.authorisation && touched.authorisation && <Typography color="error">{errors.authorisation}</Typography>}
             </FormControl>
             <Box>
                 <Box mb={2}>
-                <Typography variant="subtitle1" gutterBottom>Forage/Puits : (à numéroter sur le plan)</Typography>
+                    <Typography variant="subtitle1" gutterBottom>Forage/Puits : (à numéroter sur le plan)</Typography>
                 </Box>
                 <Stack direction="row" spacing={2}>
                     <InputField name="nombrePuits" label="Nombre de puits" className="input-field" />
@@ -180,18 +180,18 @@ export default function ThirdStep() {
                 </Box>
                 <Box className="fields2">
                     <Stack direction="row" spacing={2} className="x-axis">
-                    <InputField name="x1" label="X1" className="text-field" />
-                    <InputField name="x2" label="X2" className="text-field" />
-                    <InputField name="x3" label="X3" className="text-field" />
-                    <InputField name="x4" label="X4" className="text-field" />
-                    <InputField name="x5" label="X5" className="text-field" />
+                        <InputField name="x1" label="X1" className="text-field" />
+                        <InputField name="x2" label="X2" className="text-field" />
+                        <InputField name="x3" label="X3" className="text-field" />
+                        <InputField name="x4" label="X4" className="text-field" />
+                        <InputField name="x5" label="X5" className="text-field" />
                     </Stack>
                     <Stack direction="row" spacing={2} className="y-axis">
-                    <InputField name="y1" label="Y1" className="text-field" />
-                    <InputField name="y2" label="Y2" className="text-field" />
-                    <InputField name="y3" label="Y3" className="text-field" />
-                    <InputField name="y4" label="Y4" className="text-field" />
-                    <InputField name="y5" label="Y5" className="text-field" />
+                        <InputField name="y1" label="Y1" className="text-field" />
+                        <InputField name="y2" label="Y2" className="text-field" />
+                        <InputField name="y3" label="Y3" className="text-field" />
+                        <InputField name="y4" label="Y4" className="text-field" />
+                        <InputField name="y5" label="Y5" className="text-field" />
                     </Stack>
                 </Box>
             </Box>
@@ -206,22 +206,22 @@ export default function ThirdStep() {
                         endAdornment: (
                         <InputAdornment position="end">
                             <IconButton
-                            onClick={handleDecrement}
-                            disabled={
-                                formik.values.nombreBornes === '' ||
-                                parseInt(formik.values.nombreBornes) === 0
-                            }
+                                onClick={handleDecrement}
+                                disabled={
+                                    formik.values.nombreBornes === '' ||
+                                    parseInt(formik.values.nombreBornes) === 0
+                                }
                             >
-                            <RemoveIcon />
+                                <RemoveIcon />
                             </IconButton>
                             <IconButton
-                            onClick={handleIncrement}
-                            disabled={
-                                formik.values.nombreBornes === '' ||
-                                parseInt(formik.values.nombreBornes) === 5
-                            }
+                                onClick={handleIncrement}
+                                disabled={
+                                    formik.values.nombreBornes === '' ||
+                                    parseInt(formik.values.nombreBornes) === 5
+                                }
                             >
-                            <AddIcon />
+                                <AddIcon />
                             </IconButton>
                         </InputAdornment>
                         ),
@@ -248,22 +248,22 @@ export default function ThirdStep() {
 
             <Box className="details">
                 <Box className="title">
-                Cordonnée Lambert par norme :
+                    Cordonnée Lambert par norme :
                 </Box>
                 <Box className="fields2">
                     <Stack direction="row" spacing={2} className="x-axis">
-                    <InputField name="xn1" label="X1" className="text-field" />
-                    <InputField name="xn2" label="X2" className="text-field" />
-                    <InputField name="xn3" label="X3" className="text-field" />
-                    <InputField name="xn4" label="X4" className="text-field" />
-                    <InputField name="xn5" label="X5" className="text-field" />
+                        <InputField name="xn1" label="X1" className="text-field" />
+                        <InputField name="xn2" label="X2" className="text-field" />
+                        <InputField name="xn3" label="X3" className="text-field" />
+                        <InputField name="xn4" label="X4" className="text-field" />
+                        <InputField name="xn5" label="X5" className="text-field" />
                     </Stack>
                     <Stack direction="row" spacing={2} className="y-axis">
-                    <InputField name="yn1" label="Y1" className="text-field" />
-                    <InputField name="yn2" label="Y2" className="text-field" />
-                    <InputField name="yn3" label="Y3" className="text-field" />
-                    <InputField name="yn4" label="Y4" className="text-field" />
-                    <InputField name="yn5" label="Y5" className="text-field" />
+                        <InputField name="yn1" label="Y1" className="text-field" />
+                        <InputField name="yn2" label="Y2" className="text-field" />
+                        <InputField name="yn3" label="Y3" className="text-field" />
+                        <InputField name="yn4" label="Y4" className="text-field" />
+                        <InputField name="yn5" label="Y5" className="text-field" />
                     </Stack>
                 </Box>
             </Box>
@@ -331,10 +331,11 @@ export default function ThirdStep() {
                 </Box>
             </Stack>
             </Box>
-            <Button variant="contained" type="button" onClick={()=> {setStep(2)}} color="secondary">Back</Button>
-            <Button variant="contained" type="submit" color="primary">Next</Button>
-            </form>
-
+            <Box className='button_container'>
+                <Button variant="contained" type="button" onClick={()=> {setStep(2)}}>Back</Button>
+                <Button variant="contained" type="submit" color="primary">Next</Button>
+            </Box>
+          </Form>
         </FormikProvider>
     </Box>
     );
