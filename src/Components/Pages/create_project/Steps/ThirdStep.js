@@ -64,6 +64,7 @@ export default function ThirdStep() {
     function handleCheckboxChangeSup(event) {
         setShowFieldsSup(event.target.checked);
     }
+
     const formik = useFormik({
         initialValues: {
             authorisation:'',

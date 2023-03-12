@@ -110,7 +110,7 @@ return (
                       </Box>
                       <Box className="details">
                         <Box display="flex" gap={2} flexWrap="wrap">
-                            <InputField name="domaine" value={userData.domaine} label="Domaine" className="input-field" />
+                            <InputField name="domaine" label="Domaine" className="input-field" />
                             <InputField name="situation_géographique" label="Situation géographique" className="input-field" />
                             <InputField name="propriètaire" label="Propriètaire" className="input-field" />
                             <InputField name="locataire" label="Locataire" className="input-field" />
@@ -136,10 +136,8 @@ return (
                         <Box mt={2}>               
                             <FormControl component="fieldset">
                                 <FormLabel component="legend" >Choix Installation </FormLabel>
-                                    <Box display="flex" alignItems= "center">
-                                        <Box mr={1}>
-                                                <Typography variant="subtitle1" gutterBottom>Principale</Typography>
-                                        </Box>
+                                <Box display="flex" alignItems= "center">
+                                        <Typography variant="subtitle1" gutterBottom>Principale</Typography>
                                         <RadioGroup aria-label="installation_principele" name="installation_principele" row
                                                 value={formik.values.installation_principele} onChange={formik.handleChange} style={{marginBottom: '10px'}}>
                                             <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
@@ -148,10 +146,9 @@ return (
                                         {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_principele) ? (
                                             <FormHelperText error={Boolean(formik.errors.installation_principele)} >{formik.errors.installation_principele}</FormHelperText>
                                             ) : null}
-                                        <Box display="flex" alignItems= "center">
-                                            <Box mr={1}>
-                                                <Typography variant="subtitle1" gutterBottom>Porte rampe</Typography>
-                                            </Box>
+                                </Box>
+                                <Box display="flex" alignItems= "center">
+                                            <Typography variant="subtitle1" gutterBottom>Porte rampe</Typography>
                                             <RadioGroup aria-label="installation_porte_rampe" name="installation_porte_rampe" row
                                                     value={formik.values.installation_porte_rampe} onChange={formik.handleChange}>
                                                 <FormControlLabel value="PVC" control={<Radio />} label="PVC" />
@@ -160,8 +157,7 @@ return (
                                             {formik.touched.installation_porte_rampe && Boolean(formik.errors.installation_porte_rampe) ? (
                                                 <FormHelperText error={Boolean(formik.errors.installation_porte_rampe)} >{formik.errors.installation_porte_rampe}</FormHelperText>
                                                 ) : null}
-                                        </Box>
-                                    </Box>
+                                </Box>
                             </FormControl>
                         </Box> 
                        </Box>
