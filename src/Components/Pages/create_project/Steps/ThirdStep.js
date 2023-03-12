@@ -332,8 +332,8 @@ export default function ThirdStep() {
             </Stack>
             </Box>
             <Box className='button_container'>
-                <Button variant="contained" type="button" onClick={()=> {setStep(2)}}>Back</Button>
-                <Button variant="contained" type="submit" color="primary">Next</Button>
+                <Button variant="contained" type="button" onClick={()=> {setStep(2)}} color="inherit" >Back</Button>
+                <Button variant="contained" type="submit" color='success'>Next</Button>
             </Box>
           </Form>
         </FormikProvider>

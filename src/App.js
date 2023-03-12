@@ -12,8 +12,8 @@ function App() {
        <div className="appBody">
           <NavigationBar />
           <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/createProject' element={<Body />} />
+            {/* <Route path='/' element={<Dashboard />} /> */}
+            <Route path='/' element={<Body />} />
           </Routes>
        </div>
     </div>

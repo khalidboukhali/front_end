@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {Form, Formik } from 'formik';
 import * as yup from 'yup';
-import {Box,Button,FormHelperText,Typography} from '@material-ui/core';
+import {Box,Button,FormHelperText,Typography} from '@mui/material';
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select } from '@material-ui/core';
 import InputField from '../Controls/TextField';
 import {multiStepContext} from '../Context/StepContext';
@@ -149,8 +149,8 @@ const SecondStep = () => {
                         </Box>
                         
                         <Box className='button_container'>
-                          <Button variant="contained" type="button" onClick={()=> {setStep(1)}}>Back</Button>
-                          <Button variant="contained" type="submit" color="primary">Next</Button>
+                          <Button variant="contained" type="button" onClick={()=> {setStep(1)}} color='inherit' >Back</Button>
+                          <Button variant="contained" type="submit" color="success">Next</Button>
                         </Box>
                     </Box>                    
                 </Form>

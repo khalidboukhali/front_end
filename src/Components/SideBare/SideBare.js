@@ -8,7 +8,7 @@ import { BsPeopleFill } from 'react-icons/bs'
 import { FaRegUserCircle } from 'react-icons/fa'
 import { IoIosNotificationsOutline } from 'react-icons/io'
 import { FiSettings } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function SideBare() {
   return (
@@ -24,7 +24,7 @@ function SideBare() {
             <ul className="menuLists grid">
 
                 <li className="listItem">
-                    <Link to="/" className="menuLink flex">
+                    <Link to="#" className="menuLink flex">
                         <IoMdSpeedometer />
                         <span className="smallText">
                             Dashboard
@@ -42,12 +42,12 @@ function SideBare() {
                 </li>
 
                 <li className="listItem">
-                    <Link to="/createProject" className="menuLink flex">
+                    <NavLink to="/" className="menuLink flex">
                         <BiAddToQueue />
                         <span className="smallText">
                             Create Project
                         </span>
-                    </Link>
+                    </NavLink>
                 </li>
 
                 <li className="listItem">

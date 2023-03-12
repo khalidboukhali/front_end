@@ -13,7 +13,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import Button from '@material-ui/core/Button';
+import { Button } from '@mui/material';
 import CheckboxField from "../Controls/CheckBoxField";
 import { multiStepContext } from "../Context/StepContext";
 const FinalStep = () => {
@@ -160,8 +160,8 @@ const FinalStep = () => {
                     </Table>
               </TableContainer>
               <Box className='button_container'>
-                <Button variant="contained" margin="auto" onClick={()=> {setStep(4)}}>Back</Button>
-                <Button variant="contained" type="submit" color="primary" onClick={submitData}>Submit</Button>  
+                <Button variant="contained" margin="auto" onClick={()=> {setStep(4)}} color='inherit' >Back</Button>
+                <Button variant="contained" type="submit" color="success" onClick={submitData}>Submit</Button>  
               </Box> 
             </Form>
            )}

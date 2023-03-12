@@ -3,7 +3,7 @@ import {Form,Formik } from 'formik';
 import * as yup from 'yup';
 import { Box, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid, Radio, RadioGroup,TextField,Typography } from '@material-ui/core';
 import InputField from '../Controls/TextField';
-import Button from '@material-ui/core/Button';
+import { Button } from '@mui/material';
 import { MuiPickersUtilsProvider,KeyboardDatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns';
 import { multiStepContext } from '../Context/StepContext';
@@ -165,9 +165,9 @@ return (
                             </FormControl>
                         </Box> 
                        </Box>
-                       <Grid >
-                            <Button type="submit" variant="contained" color="primary">Next</Button>
-                       </Grid>
+                       <Box>
+                            <Button type="submit" variant="contained" color='success' >Next</Button>
+                        </Box>
                     </Box>  
              </Form>   
             )} 

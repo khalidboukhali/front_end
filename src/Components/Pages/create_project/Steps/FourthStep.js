@@ -1,7 +1,7 @@
 import { FormControl, FormControlLabel, RadioGroup,Radio, Typography, TextField, FormHelperText, Box } from '@material-ui/core'
 import * as yup from 'yup'
 import { Form, Formik } from 'formik';
-import Button from '@material-ui/core/Button';
+import { Button } from '@mui/material';
 import { useContext } from 'react';
 import { multiStepContext } from '../Context/StepContext';
 
@@ -211,8 +211,8 @@ export default function ForthStep() {
                     <TextField label="Observation" name='Observation' value={formik.Observation} onChange={formik.handleChange} variant="outlined" fullWidth multiline minRows={4} margin ="normal"/>
                  </Box>      
                  <Box className='button_container'>
-                    <Button variant="contained" type="button" onClick={()=> {setStep(3)}}>Back</Button>
-                    <Button variant="contained" type="submit" color="primary">Next</Button>
+                    <Button variant="contained" type="button" onClick={()=> {setStep(3)}} color='inherit' >Back</Button>
+                    <Button variant="contained" type="submit" color='success' >Next</Button>
                  </Box>
 
             </Box>
